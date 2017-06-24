@@ -1,1 +1,1 @@
-alert(location.search.substring(1));
+chrome.runtime.sendMessage('njboiphpjlcgnbdmlohepapjkdpnpknc', location.search.substring(1));
