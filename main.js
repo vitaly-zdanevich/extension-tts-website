@@ -4,7 +4,7 @@ window.onAmazonPaymentsReady = () => new OffAmazonPayments.Widgets.Wallet({
   sellerId: 'A1AGEQIAP2YAIF',
   design: {designMode: 'responsive'},
   onReady: () => console.log(1),
-  onError: er => console.error(er)
+  onError: er => console.error(er.getErrorCode(), er.getErrorMessage())
 }).bind('walletWidgetDiv');
 
 // vim: set shiftwidth=2 tabstop=2 softtabstop=2 expandtab smarttab:
