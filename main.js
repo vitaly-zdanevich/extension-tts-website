@@ -14,7 +14,7 @@ window.onAmazonPaymentsReady = () => {
   new OffAmazonPayments.Widgets.Wallet({
   // sellerId from https://sellercentral.amazon.com/hz/me/integration/details
     sellerId: sellerId,
-    onReady: billingAgreement => billingAgreementId =  billingAgreement.getAmazonBillingAgreementId(),
+    onReady: billingAgreement => billingAgreementId = billingAgreement.getAmazonBillingAgreementId(),
 
     // about order reference without AddressBook widget: https://pay.amazon.com/us/developer/documentation/lpwa/201953690
     onOrderReferenceCreate: orderReference => {
