@@ -23,6 +23,7 @@ window.onAmazonPaymentsReady = () => {
       orderReferenceId = orderReference.getAmazonOrderReferenceId();
     },
 
+    agreementType: 'BillingAgreement',
     design: {designMode: 'responsive'},
     onPaymentSelect: billingAgreement => console.log('inside onPaymentSelect'),  // TODO
     onError: er => console.error(er.getErrorCode(), er.getErrorMessage())
