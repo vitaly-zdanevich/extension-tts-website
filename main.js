@@ -1,5 +1,6 @@
-var sellerId = 'A1AGEQIAP2YAIF';  // the same as MerchantID
-var orderReferenceId = null;
+var sellerId = 'A1AGEQIAP2YAIF',  // the same as MerchantID
+    billingAgreementId = null,
+    orderReferenceId = null;
 
 window.onAmazonLoginReady = () => {
   amazon.Login.setClientId('amzn1.application-oa2-client.e09d5b674f464312bc705d36b0bc445f');
@@ -11,6 +12,7 @@ window.onAmazonPaymentsReady = () => {
   new OffAmazonPayments.Widgets.Wallet({
   // sellerId from https://sellercentral.amazon.com/hz/me/integration/details
     sellerId: sellerId,
+    onReady: billingAgreement => billingAgreementId =  billingAgreement.getAmazonBillingAgreementId(),
 
     // about order reference without AddressBook widget: https://pay.amazon.com/us/developer/documentation/lpwa/201953690
     onOrderReferenceCreate: orderReference => {
