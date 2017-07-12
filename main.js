@@ -32,7 +32,8 @@ function buildButton() {
     type:  'PwA',
     size:  'x-large',
     authorization: () =>
-      authRequest = amazon.Login.authorize({scope: 'profile:user_id', popup: false}, 'http://localhost:8000')
+      authRequest = amazon.Login.authorize({scope: 'profile:user_id', popup: false}, 'http://localhost:8000'),
+    onError: error => console.error(error.getErrorCode(), error.getErrorMessage())
   });
 }
 
