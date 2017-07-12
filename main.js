@@ -3,7 +3,7 @@ var orderReferenceId = null;
 
 window.onAmazonLoginReady = () => {
   amazon.Login.setClientId('amzn1.application-oa2-client.e09d5b674f464312bc705d36b0bc445f');
-  buildButtonLogin();
+  buildButton();
 }
 
 // documentation: https://pay.amazon.com/us/developer/documentation/automatic/201757500
@@ -26,9 +26,10 @@ window.onAmazonPaymentsReady = () => {
 }
 
 // TODO replace building of button to the image with link like https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.e09d5b674f464312bc705d36b0bc445f&redirect_uri=http://localhost:8000&response_type=code&scope=profile:user_id
-function buildButtonLogin() {
+function buildButton() {
   let authRequest = null;
-  OffAmazonPayments.Button('LoginWithAmazon', sellerId, {
+  OffAmazonPayments.Button('AmazonButton', sellerId, {
+    type:  'PwA',
     size:  'x-large',
     authorization: () =>
       authRequest = amazon.Login.authorize({scope: 'profile:user_id', popup: false}, 'http://localhost:8000')
