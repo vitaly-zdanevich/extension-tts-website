@@ -1,4 +1,4 @@
-var sellerId = 'A1AGEQIAP2YAIF';  // the same as MercantID
+var sellerId = 'A1AGEQIAP2YAIF';  // the same as MerchantID
 var orderReferenceId = null;
 
 window.onAmazonLoginReady = () => {
