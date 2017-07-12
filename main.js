@@ -3,11 +3,11 @@ var orderReferenceId = null;
 
 window.onAmazonLoginReady = () => {
   amazon.Login.setClientId('amzn1.application-oa2-client.e09d5b674f464312bc705d36b0bc445f');
-  buildButton();
 }
 
 // documentation: https://pay.amazon.com/us/developer/documentation/automatic/201757500
 window.onAmazonPaymentsReady = () => {
+  buildButton();
   new OffAmazonPayments.Widgets.Wallet({
   // sellerId from https://sellercentral.amazon.com/hz/me/integration/details
     sellerId: sellerId,
