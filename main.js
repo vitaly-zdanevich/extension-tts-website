@@ -30,14 +30,14 @@ window.onAmazonPaymentsReady = () => {
   }).bind('walletWidgetDiv');
 }
 
-// TODO replace building of button to the image with link like https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.e09d5b674f464312bc705d36b0bc445f&redirect_uri=http://localhost:8000&response_type=code&scope=profile:user_id
+// TODO replace building of button to the image with link like https://www.amazon.com/ap/oa?client_id=amzn1.application-oa2-client.e09d5b674f464312bc705d36b0bc445f&redirect_uri=http://localhost:8000&response_type=code&scope=profile
 function buildButton() {
   let authRequest = null;
   OffAmazonPayments.Button('AmazonButton', sellerId, {
     type:  'PwA',
     size:  'x-large',
     authorization: () =>
-      authRequest = amazon.Login.authorize({scope: 'profile:user_id', popup: false}, 'http://localhost:8000'),
+      authRequest = amazon.Login.authorize({scope: 'profile', popup: false}, 'http://localhost:8000'),
     onError: error => console.error(error.getErrorCode(), error.getErrorMessage())
   });
 }
