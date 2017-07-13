@@ -3,7 +3,7 @@ var sellerId = 'A1AGEQIAP2YAIF',  // the same as MerchantID
     orderReferenceId = null;
 
 window.onAmazonLoginReady = () => {
-  amazon.Login.setClientId('amzn1.application-oa2-client.e09d5b674f464312bc705d36b0bc445f');
+  amazon.Login.setClientId('amzn1.application-oa2-client.02ed9990eb9744b19e58bbdd05117659');
 }
 
 /** documentation: https://pay.amazon.com/us/developer/documentation/automatic/201757500
