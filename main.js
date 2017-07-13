@@ -34,7 +34,7 @@ window.onAmazonPaymentsReady = () => {
 function buildButton() {
   let authRequest = null;
   OffAmazonPayments.Button('AmazonButton', sellerId, {
-    type:  'PwA',
+    type:  'LwA',
     size:  'x-large',
     authorization: () =>
       authRequest = amazon.Login.authorize({scope: 'profile', popup: false}, 'http://localhost:8000'),
