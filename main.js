@@ -37,7 +37,7 @@ function buildButton() {
     type:  'LwA',
     size:  'x-large',
     authorization: () =>
-      authRequest = amazon.Login.authorize({scope: 'profile payments:widget', popup: false}, 'https://vitaly-zdanevich.github.io/extension-tts-website'),
+      authRequest = amazon.Login.authorize({'scope': 'profile payments:widget', 'popup': false}, 'https://vitaly-zdanevich.github.io/extension-tts-website'),
     onError: error => console.error(error.getErrorCode(), error.getErrorMessage())
   });
 }
