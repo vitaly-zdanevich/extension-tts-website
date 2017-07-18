@@ -4,6 +4,7 @@ var sellerId = 'A1AGEQIAP2YAIF',  // the same as MerchantID
 
 window.onAmazonLoginReady = () => {
   amazon.Login.setClientId('amzn1.application-oa2-client.02ed9990eb9744b19e58bbdd05117659');
+  amazon.Login.setUseCookie(true);
 }
 
 /** documentation: https://pay.amazon.com/us/developer/documentation/automatic/201757500
@@ -11,6 +12,13 @@ window.onAmazonLoginReady = () => {
 */
 window.onAmazonPaymentsReady = () => {
   buildButton();
+
+  // after auth redirect; https://pay.amazon.com/us/developer/documentation/automatic/201757280
+  if (window.location.hash.includes('access_token')) {
+    let url = new URLSearchParams(window.location.hash.slice(1))  // slice remove `#`
+    document.cookie = 'amazon_Login_accessToken=' + url.get('access_token') + ';secure';
+  }
+
   new OffAmazonPayments.Widgets.Wallet({
   // sellerId from https://sellercentral.amazon.com/hz/me/integration/details
     sellerId: sellerId,
