@@ -15,6 +15,7 @@ window.onAmazonPaymentsReady = () => {
 
   // after auth redirect; https://pay.amazon.com/us/developer/documentation/automatic/201757280
   if (window.location.hash.includes('access_token')) {
+    // Edge do not support URLSearchParams, June 2017: http://caniuse.com/#search=URLsearchParams
     let url = new URLSearchParams(window.location.hash.slice(1))  // slice remove `#`
     document.cookie = 'amazon_Login_accessToken=' + url.get('access_token') + ';secure';
   }
