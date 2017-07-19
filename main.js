@@ -8,8 +8,8 @@ window.onAmazonLoginReady = () => {
 }
 
 /** documentation: https://pay.amazon.com/us/developer/documentation/automatic/201757500
-* and https://pay.amazon.com/us/developer/documentation/automatic/201757500
-*/
+ *  and https://pay.amazon.com/us/developer/documentation/automatic/201757500
+ */
 window.onAmazonPaymentsReady = () => {
   buildButton();
 
