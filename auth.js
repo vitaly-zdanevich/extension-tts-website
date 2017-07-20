@@ -7,11 +7,13 @@ window.fbAsyncInit = function() {
   });
   FB.AppEvents.logPageView();
   FB.getLoginStatus(r => {
+    if (r['status'] === 'connected') {
+      // TODO hide login button
       let aboutUser = {
-        'userID': r['authResponse']['userID'],
+        'userId': r['authResponse']['userID'],
         'accessToken': r['authResponse']['accessToken']
       };
-      FB.api('/me?fields=name,email,picture', r => {
+      FB.api('/me?fields=name,email,picture', r => {  // TODO omit Facebook js sdk to fetch()
         let url = new URLSearchParams(window.location.search.slice(1))
         aboutUser['clientId'] = url.get('clientId');
 
@@ -21,11 +23,15 @@ window.fbAsyncInit = function() {
         // extension will download it - because have the same cookies as a browser
         aboutUser['avatarPrivateUrl'] = r['picture']['data']['url'];
         console.log(aboutUser);
-        fetch('https://httpbin.org/post', {
-          'method': 'post',
+        fetch('https://jmf2a0t2e4.execute-api.eu-west-1.amazonaws.com/extension/auth', {
+          'method': 'POST',  // TODO GET will be faster because without OPTIONS
           'body': JSON.stringify(aboutUser)
         }).then(r => r.json()).then(r => console.log(r));
       })
+    } else {
+      window.location = encodeURI(
+        'https://www.facebook.com/dialog/oauth?client_id=191546788049485&redirect_uri=http://localhost:8000/auth.html&response_type=token');
+    }
   });
 };
 
