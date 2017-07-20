@@ -25,6 +25,7 @@ window.fbAsyncInit = function() {
         console.log(aboutUser);
         fetch('https://jmf2a0t2e4.execute-api.eu-west-1.amazonaws.com/extension/auth', {
           'method': 'POST',  // TODO GET will be faster because without OPTIONS
+          'headers': {'Content-Type': 'application/json'},
           'body': JSON.stringify(aboutUser)
         }).then(r => r.json()).then(r => console.log(r));
       })
