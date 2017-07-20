@@ -15,7 +15,7 @@ window.fbAsyncInit = function() {
       };
       FB.api('/me?fields=name,email,picture', r => {  // TODO omit Facebook js sdk to fetch()
         let url = new URLSearchParams(window.location.search.slice(1))
-        aboutUser['clientId'] = url.get('clientId');
+        aboutUser['clientKey'] = url.get('clientId');
 
         aboutUser['name'] = r['name'];
         aboutUser['email'] = r['email'];
