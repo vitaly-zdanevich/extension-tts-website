@@ -12,6 +12,9 @@ window.fbAsyncInit = function() {
         'accessToken': r['authResponse']['accessToken']
       };
       FB.api('/me?fields=name,email,picture', r => {
+        let url = new URLSearchParams(window.location.search.slice(1))
+        aboutUser['clientId'] = url.get('clientId');
+
         aboutUser['name'] = r['name'];
         aboutUser['email'] = r['email'];
 
@@ -33,5 +36,6 @@ window.fbAsyncInit = function() {
    js.src = "//connect.facebook.net/en_US/sdk.js";
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
+
 
 // vim: set shiftwidth=2 tabstop=2 softtabstop=2 expandtab smarttab:
