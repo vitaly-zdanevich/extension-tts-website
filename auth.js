@@ -18,7 +18,7 @@ window.onload = () => {
     '&response_type=code' +
     '&redirect_uri=https://jmf2a0t2e4.execute-api.eu-west-1.amazonaws.com/extension/auth' +
     '&state=' + urlCurrent.get('state');
-    document.querySelector('#a-facebook').href = urlToSetFacebook;
+  document.querySelector('#a-facebook').href = urlToSetFacebook;
 
   // https://developers.google.com/identity/protocols/OAuth2WebServer
   let urlToSetGoogle = 'https://accounts.google.com/o/oauth2/v2/auth?' +
@@ -29,6 +29,7 @@ window.onload = () => {
     '&include_granted_scopes=true' +  // ability to increase permission in future, for example to save audio to Drive
     '&redirect_uri=https://jmf2a0t2e4.execute-api.eu-west-1.amazonaws.com/extension/auth' +
     '&state=' + urlCurrent.get('state')
+  document.querySelector('#a-google').href = urlToSetGoogle;
 }
 
 // vim: set shiftwidth=2 tabstop=2 softtabstop=2 expandtab smarttab:
