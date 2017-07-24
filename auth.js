@@ -7,9 +7,8 @@ window.onload = () => {
     '&scope=profile' +
     '&response_type=code' +
     '&redirect_uri=https://jmf2a0t2e4.execute-api.eu-west-1.amazonaws.com/extension/auth' + // TODO replace url to our domain
-
+    '&state=' + urlCurrent.get('state');  // extension open current url with state in param
     // random value like 326263189424723457354115822995 - client will use it for first POST with exchanging to user_id
-    '&state=' + urlCurrent.get('state');
   document.querySelector('#a-amazon').href = urlToSetAmazon;
 
 
