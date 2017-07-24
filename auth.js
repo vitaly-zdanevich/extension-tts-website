@@ -19,6 +19,16 @@ window.onload = () => {
     '&redirect_uri=https://jmf2a0t2e4.execute-api.eu-west-1.amazonaws.com/extension/auth' +
     '&state=' + urlCurrent.get('state');
     document.querySelector('#a-facebook').href = urlToSetFacebook;
+
+  // https://developers.google.com/identity/protocols/OAuth2WebServer
+  let urlToSetGoogle = 'https://accounts.google.com/o/oauth2/v2/auth?' +
+    'client_id=891307942570-5j5kkv3suqjn8k7dsf1n0233922510pn.apps.googleusercontent.com' +
+    'scope=profile' +
+    '&response_type=code' +
+    '&access_type=offline' +  // ability to refresh access token
+    '&include_granted_scopes=true' +  // ability to increase permission in future, for example to save audio to Drive
+    '&redirect_uri=https://jmf2a0t2e4.execute-api.eu-west-1.amazonaws.com/extension/auth' +
+    '&state=' + urlCurrent.get('state')
 }
 
 // vim: set shiftwidth=2 tabstop=2 softtabstop=2 expandtab smarttab:
