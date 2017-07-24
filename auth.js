@@ -23,7 +23,7 @@ window.onload = () => {
   // https://developers.google.com/identity/protocols/OAuth2WebServer
   let urlToSetGoogle = 'https://accounts.google.com/o/oauth2/v2/auth?' +
     'client_id=891307942570-5j5kkv3suqjn8k7dsf1n0233922510pn.apps.googleusercontent.com' +
-    'scope=profile' +
+    '&scope=profile' +
     '&response_type=code' +
     '&access_type=offline' +  // ability to refresh access token
     '&include_granted_scopes=true' +  // ability to increase permission in future, for example to save audio to Drive
